@@ -1,1 +1,1 @@
-# Day-Trading
+# Day Trading
