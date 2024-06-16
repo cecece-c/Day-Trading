@@ -8,14 +8,23 @@ while True:
         try:
             print("\nEnter '0' to exit program.")
             average_fill_price = float(input("\nEnter average fill price of share(s) purchased: $"))
-            if average_fill_price == 0.00:
+            if average_fill_price == 0:
                 print("\nProgram exiting...")
                 for delay in range(5):
                     time.sleep(1)
                 sys.exit()
-            quantity_of_shares = float(input("\nEnter quantity of share(s) purchased: "))
-            transaction_fee = float(input("\nEnter transaction fee of trade: $"))
-            break
+            elif average_fill_price > 0:
+                quantity_of_shares = float(input("\nEnter quantity of share(s) purchased: "))
+                if quantity_of_shares > 0:
+                    transaction_fee = float(input("\nEnter transaction fee of trade: $"))
+                    if transaction_fee >= 0:
+                        break
+                    else:
+                        print("\nInvalid input. Only numbers above or equal to 0 are accepted.")
+                else:
+                    print("\nInvalid input. Only numbers above 0 are accepted.")
+            else:
+                print("\nInvalid input. Only numbers above 0 are accepted.")
         except ValueError:
             print("\nInvalid input. Only numbers are accepted.")
 
@@ -28,7 +37,10 @@ while True:
     while True:
         try:
             desired_profit = float(input("\nEnter desired profit: $"))
-            break
+            if desired_profit >= 0:
+                break
+            else:
+                print("\nInvalid input. Only numbers above or equal to 0 are accepted.")
         except ValueError:
             print("\nInvalid input. Only numbers are accepted.")
 
