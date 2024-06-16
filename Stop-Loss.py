@@ -3,7 +3,7 @@ import sys, time
 
 
 while True:
-    # Get average fill price of share(s) purchased, quantity of shares purchased and transaction fee, and store values in 'average_fill_price' (Float), 'quantity_of_shares' (Float) and 'transaction_fee' (Float) respectively
+    # Get average fill price of share(s) purchased, quantity of shares purchased and transaction fee of trade, and store values in 'average_fill_price' (Float), 'quantity_of_shares' (Float) and 'transaction_fee' (Float) respectively
     while True:
         try:
             print("\nEnter '0' to exit program.")
