@@ -1,4 +1,5 @@
-# Import 'os', 'sys' and 'time' libraries
+# Import 'date' class and 'os', 'sys', and 'time' libraries
+from datetime import date
 import os, sys, time
 
 
@@ -9,6 +10,11 @@ current_working_directory = current_working_directory.replace("c:", "") + "/"
 
 # Store value of trade number count in 'trade_number' (Integer)
 trade_number = 1
+
+
+# Store value of date of trade in 'date_of_trade' (String)
+date_of_trade = date.today()
+date_of_trade = date_of_trade.strftime("%d/%m/%y").replace("/", "-")
 
 
 while True:
@@ -81,7 +87,7 @@ while True:
 
 
     # Write trade record to file 'Trade Record - {} - {}.txt'
-    with open(f"{current_working_directory}Trade Record - {action} - {trade_number}.txt", "w") as filekey:
-        filekey.write(f"Symbol name: {symbol_name}\nAverage fill price: ${round(average_fill_price, 2):.2f}\nQuantity of shares: {round(quantity_of_shares, 2):.2f}\nTransaction fee: ${round(transaction_fee, 2):.2f}\nTotal price of shares: ${round(total_price, 2):.2f}")
-        print(f"\nTrade record has been generated and written to {current_working_directory}Trade Record - {action} - {trade_number}.txt.")
+    with open(f"{current_working_directory}Trade Record - {date_of_trade} - {action} - {trade_number}.txt", "w") as filekey:
+        filekey.write(f"Date: {date_of_trade}\nSymbol name: {symbol_name}\nAverage fill price: ${round(average_fill_price, 2):.2f}\nQuantity of shares: {round(quantity_of_shares, 2):.2f}\nTransaction fee: ${round(transaction_fee, 2):.2f}\nTotal price of shares: ${round(total_price, 2):.2f}")
+        print(f"\nTrade record has been generated and written to {current_working_directory}Trade Record - {date_of_trade} - {action} - {trade_number}.txt.")
         trade_number += 1
